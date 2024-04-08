@@ -1,0 +1,187 @@
+@keyframes dynamicBackground {
+  0% {
+      /* background: linear-gradient(45deg, #d0d0c8, #ececcc); */
+      background-color: peachpuff;
+      background-size: 400% 400%;
+      animation-timing-function: ease-in-out;
+  }
+  50% {
+      background-position: 100% 0;
+  }
+  100% {
+      background-position: 0 0;
+  }
+}
+
+/* Apply the animation to the body */
+body {
+  animation: dynamicBackground 10s infinite;
+}
+
+
+@keyframes dotFade {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes dashFade {
+  0%, 100% {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 1;
+  }
+}
+
+.w, .l, .o, .m {
+  animation: dashFade 2s infinite;
+}
+
+.e, .c,.e1 {
+  animation: dotFade 1s infinite;
+}
+
+[data-morse*="."] {
+  animation-name: dotFade;
+}
+
+[data-morse*="-"] {
+  animation-name: dashFade;
+}
+
+.animation-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter {
+  position: relative;
+  font-size: 6rem;
+  margin: 0 5px;
+  opacity: 0;
+  top:220px;
+}
+
+.letter::after {
+  content: attr(data-morse);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+.welcome-animation-container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  top:900px
+}
+
+.animation-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.w, .e, .l, .c, .o, .m ,.e1{
+  animation-fill-mode: forwards; /* Keeps the last keyframe state after the animation ends */
+}
+
+.w {
+  animation-delay: 0s;
+}
+
+.e {
+  animation-delay: 2s; /* 2s delay after 'w' animation */
+}
+
+.l {
+  animation-delay: 4s; /* 4s delay after 'e' animation */
+}
+
+.c {
+  animation-delay: 6s; /* 6s delay after 'l' animation */
+}
+
+.o {
+  animation-delay: 8s; /* 8s delay after 'c' animation */
+}
+
+.m {
+  animation-delay: 10s; /* 10s delay after 'o' animation */
+}
+
+.e1 {
+  animation-delay: 12s; /* 2s delay after 'w' animation */
+}
+
+/* Existing CSS styles */
+
+/* Existing CSS styles */
+
+.to-container {
+  display: flex;
+  justify-content: center;
+}
+
+.to-text {
+  font-size: 6rem;
+  position:relative;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 12s;
+  top:200px;
+}
+
+.space{
+  font-size: 6rem;
+  position:relative;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 12s;
+  top:200px;
+
+
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.welcome-image {
+  display: block;
+  position:absolute;
+  margin: 0 auto; /* Center the image horizontally */
+  width: 300px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  top:80px;
+  left:500px;
+  animation: zoom-in 1s ease-in-out;
+}
+@keyframes zoom-in {
+from { transform: scale(0.8); } /* Start slightly smaller */
+to { transform: scale(1); } /* Zoom in to full size */
+}
+
+.welcome-sentence{
+  font-size: 2rem;
+  position:relative;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 12s;
+  top:290px;
+  left:200px;
+  font-family:'Times New Roman', Times, serif;
+
+}

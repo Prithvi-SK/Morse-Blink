@@ -1,0 +1,120 @@
+/* Body styling */
+body 
+{
+  background-color: peachpuff; /* Light gray */
+  color: brown; /* Dark gray */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full height of the viewport */
+  display: flex; /* Enable flexbox layout */
+  flex-direction: column; /* Arrange children vertically */
+}
+  
+  /* Container styling */
+.company-info-container {
+  flex: 1; /* Take up remaining vertical space */
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+}
+  
+/* Top navigation styling */
+.top-nav {
+  background-color: brown; /* Blue */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.top-nav h1 {
+  margin: 0;
+}
+
+/* Content section styling */
+.content {
+  display: flex;
+  flex: 1; /* Take up remaining vertical space */
+  margin-top: 20px;
+}
+
+.image-container {
+  flex: 1;
+}
+
+.image-container video {
+  max-width: 100%; /* Ensure the video does not exceed the container width */
+  height: auto; /* Maintain the aspect ratio */
+  max-height: 500px; /* Set the maximum height of the video */
+}  
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.small-div {
+  margin-left: 0;
+  width: 20px;
+  height: 20px;
+  /* background-color: red; */
+}
+
+.description-container {
+  flex: 1;
+  margin-left: 5%;
+  width: calc(100% - 400px - 20px);
+  color: brown;
+}
+
+.description {
+  height: 200px; /* Set the height you prefer */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff; /* White background */
+  word-wrap: break-word;
+}
+
+.description::-webkit-scrollbar {
+  width: 8px;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Blue */
+  border-radius: 10px;
+}
+
+/* Bottom info styling */
+.bottom-info {
+  background-color: brown; /* Light yellow */
+  text-align: center;
+  color: peachpuff;
+  margin-top: 20px; /* Add margin at the bottom */
+  padding: 10px 0; /* Add padding */
+}
+
+.bottom-info p {
+  margin: 5px 0;
+}
+
+
+
+.narr{
+  background-color: white;
+  color: brown;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  /* max-width: 100%; */
+  width: 100%;
+}
+
+
