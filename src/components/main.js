@@ -34,9 +34,10 @@ function App() {
 
     captureVideo();
 
+    console.log("sgsgsd")
     // Listen for timestamp event from server
     socket.on('timestamp', (data) => {
-      console.log(data)
+      console.log("sgsgsd",data)
       if (data.timestamp=="<BS>")
       {
         setTimestamp(timestamp=>timestamp.slice(0,-1));
