@@ -1,6 +1,8 @@
 import cv2
 import mediapipe as mp
 import time
+from os import system, name
+
 
 class BlinkDetector:
     def __init__(self, filename='detected_letters.txt'):
@@ -144,7 +146,9 @@ class BlinkDetector:
                                 else:
                                     self.detected_letters += self.dec_let
                                     self.save_to_file(self.dec_let)  # Save to file
-                                    print("\nDetected letter:", self.dec_let, flush=True)
+                                    # print("\nDetected letter:", self.dec_let, flush=True)
+                                    print("\nDetected word:", self.detected_letters, flush=True)
+                                    # self.dec_let=''
                                     self.toSend=True
                                     # self.hasBlinked=False 
                             self.blink_sequence = ''  # Reset blink sequence
@@ -154,10 +158,10 @@ class BlinkDetector:
                         blink_duration = time.time() - self.last_blink_time
                         if blink_duration >= self.blink_threshold:
                             if blink_duration > 0.8:  # Long blink
-                                print('L', end='', flush=True)
+                                # print('L', end='', flush=True)
                                 self.blink_sequence += 'L'
                             else:  # Short blink
-                                print('S', end='', flush=True)
+                                # print('S', end='', flush=True)
                                 self.blink_sequence += 'S'
                             self.last_blink_time = 0
         # return False
@@ -167,18 +171,30 @@ class BlinkDetector:
     def release(self):
         self.facemesh.close()
 
+# define our clear function
+def clear():
+
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 # Example usage:
-if __name__ == "_main_":
+if __name__ == "__main__":
     detector = BlinkDetector()
     cap = cv2.VideoCapture(0)
 
+    # print("test")
+    clear()
     while True:
         success, frame = cap.read()
         if not success:
             break
         
         to_break = detector.detect_blinks(frame)
-        print("word: ",detector.returnLetter())
+        print(detector.returnLetter())
 
         cv2.imshow("Frame", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'): 

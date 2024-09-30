@@ -53,8 +53,9 @@ def process_frame(sid, data):
     detector.detect_blinks(frame)
     if detector.toSend:
         # Notify clients or perform any action upon blink detection
-        # print("Blink : ",detector.returnLetter())
+        print("Blink : ",detector.returnLetter())
         letter=detector.dec_let
+
         # print("letter:::::::::::::              ",letter)
         sio.emit('timestamp', {'timestamp': letter}, room=sid)  
         detector.toSend=False
@@ -65,7 +66,7 @@ def process_frame(sid, data):
 
     # Further processing or handling of the frame data
 
-    cv2.imshow('Processed Frame', frame)
+    # cv2.imshow('Processed Frame', frame)
     # Display the processed frame
     cv2.waitKey(1)
 
@@ -73,4 +74,5 @@ def process_frame(sid, data):
 # Define other routes or functions as needed
 
     # Start the server using Eventlet
+print("help",flush=True)
 eventlet.wsgi.server(eventlet.listen(('localhost', 3001)), app)
